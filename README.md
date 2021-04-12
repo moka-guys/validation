@@ -12,10 +12,11 @@ output:
 
 This repository contains script and utilities to create reproducible NGS assay validations
 
+
 ## Cancer
 
 
-### sensitivity and specificity
+### Sensitivity and specificity
 
 
 ### Reproducibility
@@ -37,7 +38,7 @@ This repository contains script and utilities to create reproducible NGS assay v
 
 
 ### Limit of detection
-
+Two sample virtual intermixing to determine AF limit of detection.
 
 ### Other considerations
 
