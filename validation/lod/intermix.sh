@@ -15,7 +15,8 @@ mkdir -p $OUT
 for s in $(seq -w 0 ${STEP})
 do
 	#PROP=$(bc -l <<< "${SIZE}*${s}/${STEP}")
-	PROP1=$((${SIZE}*${s}/${STEP}))
+	# have octal error when reach step > 07 so prefix $s with 10# to force bash to consider as decimal
+	PROP1=$((${SIZE}*10#${s}/${STEP}))
 	PROP2=$((${SIZE}-${PROP1}))
 	echo "*** STEP ${s} *** (${PROP1} ${PROP2})"
 	OR1="${OUT}/MIX${s}_S${s}_L001_R1_001.fastq"
