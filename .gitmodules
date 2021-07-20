@@ -1,0 +1,4 @@
+[submodule "assembly_transition/lifto"]
+	path = assembly_transition/lifto
+	url = https://git.kingspm.uk/seglh/lifto
+	branch = develop

@@ -1,5 +1,15 @@
-require(reshape2)
-require(ggplot2)
+options(menu.graphics=FALSE)
+options(repos=structure(c(CRAN="http://cran.ma.imperial.ac.uk/")))
+
+requirements<-c("reshape2","ggplot2")
+
+for (r in requirements) {
+  print(r)
+  if (!(r%in%installed.packages())) {
+    install.packages(r,dependencies=TRUE)
+  }
+}
+lapply(requirements, require, character.only = TRUE)
 
 
 lod<-function(inputfile) {
@@ -65,6 +75,6 @@ save.image("lod.RData")
 
 # example plots
 # Consider removing low DP variants before proessing
-# ggplot(a[which(a$min<0.1),]) + geom_boxplot(aes(imputed,value))
-# ggplot(a[which(a$min<0.1),]) + geom_line(aes(variant,value,color=imputed))
+# ggplot(data[which(data$min<0.1),]) + geom_boxplot(aes(imputed,value))
+# ggplot(data[which(data$min<0.1),]) + geom_line(aes(variant,value,color=imputed))
 

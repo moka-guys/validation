@@ -44,4 +44,25 @@ The data is saved in `lod.RData` (this file will be overwritten if the analysis 
 Make sure to specific a minimum average read depth for the included variants.
 
 
+## Additional fitlering steps
+
+### filter tnhaplotyper2 calls
+`bcftools view -f PASS -e  "FORMAT/DP<100" data/raw/MIX00_S00_markdup_tnhaplotyper2.vcf.gz | grep -c -v "^#"`
+
+
+# Example: build data table for unfiltered VCFs
+
+The input data for AF extraction must be representatiove of the variants cconsidered for clinical interpretation. 
+Remove any low coverage variants and subset the VCF by the target regions.
+
+## Build filtered VCF dataset
+```
+for f in data/raw/MIX*.vcf.gz; do
+	g="data/raw"`basename $f .vcf.gz`"_PASS.vcf.gz"
+	bedtools intersect -u -a $f -b $TARGETS | bcftools view -f PASS -e  "FORMAT/DP<200" - > $g
+done
+```
+
+## generate AF table from VCFs
+find data -name "*_PASS.vcf" | xargs ./extractAF.sh | sed 's/\t\./\tNA/g' > data.tsv
 
