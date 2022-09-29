@@ -9,3 +9,4 @@ Note that the VCFs are compressed (.tar.gz) and stored in 001_ToolsReferenceData
 
 ## super_sample_v2.0.0
 This sample has the addition of 4 variants that have been added to test the Congenica blacklist functionality.
+# TODO add testing statement
