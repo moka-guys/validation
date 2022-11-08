@@ -11,3 +11,8 @@ Note that the VCFs are zipped using bgzip (.gz - not .tar.gz!) and stored in 001
 This sample has the addition of 4 variants that have been added to test the Congenica blacklist functionality.
 
 This has been uploaded to congenica to ensure that it is a valid VCF and can be used to test the blacklist functionality
+
+## super_sample_v3.0.0
+This sample has one extra variant used to test the FH blacklist
+
+This has been uploaded to congenica to ensure that it is a valid VCF.
